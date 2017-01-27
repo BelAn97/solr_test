@@ -1,6 +1,4 @@
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,8 +6,9 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
-@XmlRootElement
-class Product {
+@XmlRootElement(name = "product")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Product {
 	@XmlElement
 	String sku;
 	@XmlElement

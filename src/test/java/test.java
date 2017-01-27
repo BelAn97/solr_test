@@ -24,34 +24,36 @@ public class test {
     @Test
     public void import_data () throws IOException, JAXBException, SAXException {
 
-        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Schema schema = sf.newSchema(new File("src/main/resources/data/products/schema.xsd"));
+        //SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        //Schema schema = sf.newSchema(new File("src/main/resources/data/products/schema.xsd"));
 
-        File productsXML = new File("src/main/resources/data/products/product_sample.xml");
-        JAXBContext jaxbContext = JAXBContext.newInstance(ProductRecordRoot.class);
+        File productsXML = new File("src/main/resources/data/products/products_0001_43900_to_1063518.xml");
+        JAXBContext jaxbContext = JAXBContext.newInstance(Products.class);
 
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        ProductRecordRoot products = (ProductRecordRoot) jaxbUnmarshaller.unmarshal(productsXML);
-        Map productMap = products.toMap();
+        Products products = (Products) jaxbUnmarshaller.unmarshal(productsXML);
+        for (Product product: products.getProducts()) {
+            Map productMap = product.toMap();
 
-        String urlString = "http://localhost:8983/solr/products/";
-        SolrClient solr = new HttpSolrClient.Builder(urlString).build();
+            String urlString = "http://localhost:8983/solr/products/";
+            SolrClient solr = new HttpSolrClient.Builder(urlString).build();
 
-        SolrInputDocument document = new SolrInputDocument();
-        productMap.forEach((k,v)->{
-                    if (v == null)
-                        document.addField((String)k, "");
-                    else
-                        document.addField((String)k, v);
-                }
-        );
-        try {
-            UpdateResponse response = solr.add(document);
-            solr.commit();
-        } catch (SolrServerException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            SolrInputDocument document = new SolrInputDocument();
+            productMap.forEach((k,v)->{
+                        if (v == null)
+                            document.addField((String)k, "");
+                        else
+                            document.addField((String)k, v);
+                    }
+            );
+            try {
+                UpdateResponse response = solr.add(document);
+                solr.commit();
+            } catch (SolrServerException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
