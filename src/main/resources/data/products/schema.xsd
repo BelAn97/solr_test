@@ -1,0 +1,178 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="products">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="product" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="sku"/>
+              <xs:element type="xs:byte" name="productId"/>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element type="xs:string" name="source"/>
+              <xs:element type="xs:string" name="type"/>
+              <xs:element type="xs:string" name="startDate"/>
+              <xs:element type="xs:string" name="new"/>
+              <xs:element type="xs:string" name="active"/>
+              <xs:element type="xs:string" name="lowPriceGuarantee"/>
+              <xs:element type="xs:dateTime" name="activeUpdateDate"/>
+              <xs:element type="xs:float" name="regularPrice"/>
+              <xs:element type="xs:float" name="salePrice"/>
+              <xs:element type="xs:string" name="onSale"/>
+              <xs:element type="xs:string" name="planPrice"/>
+              <xs:element type="xs:string" name="priceWithPlan"/>
+              <xs:element type="xs:string" name="priceRestriction"/>
+              <xs:element type="xs:dateTime" name="priceUpdateDate"/>
+              <xs:element type="xs:string" name="digital"/>
+              <xs:element type="xs:string" name="preowned"/>
+              <xs:element type="xs:string" name="carrierPlans"/>
+              <xs:element type="xs:string" name="technologyCode"/>
+              <xs:element type="xs:string" name="carrierModelNumber"/>
+              <xs:element type="xs:string" name="earlyTerminationFees"/>
+              <xs:element type="xs:string" name="outletCenter"/>
+              <xs:element type="xs:string" name="secondaryMarket"/>
+              <xs:element type="xs:string" name="frequentlyPurchasedWith"/>
+              <xs:element type="xs:string" name="accessories"/>
+              <xs:element type="xs:string" name="relatedProducts"/>
+              <xs:element type="xs:string" name="techSupportPlans"/>
+              <xs:element type="xs:string" name="salesRankShortTerm"/>
+              <xs:element type="xs:string" name="salesRankMediumTerm"/>
+              <xs:element type="xs:string" name="salesRankLongTerm"/>
+              <xs:element type="xs:string" name="bestSellingRank"/>
+              <xs:element type="xs:anyURI" name="url"/>
+              <xs:element type="xs:string" name="spin360Url"/>
+              <xs:element type="xs:anyURI" name="mobileUrl"/>
+              <xs:element type="xs:string" name="affiliateUrl"/>
+              <xs:element type="xs:anyURI" name="addToCartUrl"/>
+              <xs:element type="xs:string" name="affiliateAddToCartUrl"/>
+              <xs:element type="xs:string" name="linkShareAffiliateUrl"/>
+              <xs:element type="xs:string" name="linkShareAffiliateAddToCartUrl"/>
+              <xs:element type="xs:string" name="search"/>
+              <xs:element type="xs:long" name="upc"/>
+              <xs:element type="xs:string" name="productTemplate"/>
+              <xs:element name="categoryPath">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="category" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="id"/>
+                          <xs:element type="xs:string" name="name"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="lists"/>
+              <xs:element type="xs:string" name="customerReviewCount"/>
+              <xs:element type="xs:string" name="customerReviewAverage"/>
+              <xs:element type="xs:string" name="customerTopRated"/>
+              <xs:element type="xs:string" name="format"/>
+              <xs:element type="xs:string" name="freeShipping"/>
+              <xs:element type="xs:string" name="freeShippingEligible"/>
+              <xs:element type="xs:string" name="inStoreAvailability"/>
+              <xs:element type="xs:string" name="inStoreAvailabilityText"/>
+              <xs:element type="xs:string" name="inStoreAvailabilityTextHtml"/>
+              <xs:element type="xs:dateTime" name="inStoreAvailabilityUpdateDate"/>
+              <xs:element type="xs:dateTime" name="itemUpdateDate"/>
+              <xs:element type="xs:string" name="onlineAvailability"/>
+              <xs:element type="xs:string" name="onlineAvailabilityText"/>
+              <xs:element type="xs:string" name="onlineAvailabilityTextHtml"/>
+              <xs:element type="xs:dateTime" name="onlineAvailabilityUpdateDate"/>
+              <xs:element type="xs:string" name="releaseDate"/>
+              <xs:element type="xs:float" name="shippingCost"/>
+              <xs:element name="shipping">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:float" name="ground"/>
+                    <xs:element type="xs:string" name="secondDay"/>
+                    <xs:element type="xs:string" name="nextDay"/>
+                    <xs:element type="xs:string" name="vendorDelivery"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="specialOrder"/>
+              <xs:element type="xs:string" name="shortDescription"/>
+              <xs:element type="xs:string" name="shortDescriptionHtml"/>
+              <xs:element type="xs:string" name="class"/>
+              <xs:element type="xs:short" name="classId"/>
+              <xs:element type="xs:string" name="subclass"/>
+              <xs:element type="xs:short" name="subclassId"/>
+              <xs:element type="xs:string" name="department"/>
+              <xs:element type="xs:byte" name="departmentId"/>
+              <xs:element type="xs:int" name="bestBuyItemId"/>
+              <xs:element type="xs:string" name="buybackPlans"/>
+              <xs:element type="xs:string" name="protectionPlans"/>
+              <xs:element type="xs:string" name="productFamilies"/>
+              <xs:element type="xs:string" name="description"/>
+              <xs:element type="xs:string" name="manufacturer"/>
+              <xs:element type="xs:string" name="modelNumber"/>
+              <xs:element type="xs:anyURI" name="image"/>
+              <xs:element type="xs:anyURI" name="largeFrontImage"/>
+              <xs:element type="xs:anyURI" name="mediumImage"/>
+              <xs:element type="xs:anyURI" name="thumbnailImage"/>
+              <xs:element type="xs:anyURI" name="largeImage"/>
+              <xs:element type="xs:string" name="alternateViewsImage"/>
+              <xs:element type="xs:string" name="angleImage"/>
+              <xs:element type="xs:string" name="backViewImage"/>
+              <xs:element type="xs:string" name="energyGuideImage"/>
+              <xs:element type="xs:string" name="leftViewImage"/>
+              <xs:element type="xs:string" name="accessoriesImage"/>
+              <xs:element type="xs:string" name="remoteControlImage"/>
+              <xs:element type="xs:string" name="rightViewImage"/>
+              <xs:element type="xs:string" name="topViewImage"/>
+              <xs:element type="xs:string" name="condition"/>
+              <xs:element type="xs:string" name="inStorePickup"/>
+              <xs:element type="xs:string" name="friendsAndFamilyPickup"/>
+              <xs:element type="xs:string" name="homeDelivery"/>
+              <xs:element type="xs:string" name="quantityLimit"/>
+              <xs:element type="xs:string" name="fulfilledBy"/>
+              <xs:element type="xs:string" name="bundledIn"/>
+              <xs:element type="xs:string" name="color"/>
+              <xs:element type="xs:string" name="depth"/>
+              <xs:element type="xs:float" name="dollarSavings"/>
+              <xs:element type="xs:float" name="percentSavings"/>
+              <xs:element type="xs:string" name="tradeInValue"/>
+              <xs:element type="xs:string" name="height"/>
+              <xs:element type="xs:string" name="orderable"/>
+              <xs:element type="xs:string" name="weight"/>
+              <xs:element type="xs:float" name="shippingWeight"/>
+              <xs:element type="xs:string" name="width"/>
+              <xs:element type="xs:string" name="warrantyLabor"/>
+              <xs:element type="xs:string" name="warrantyParts"/>
+              <xs:element type="xs:string" name="longDescription"/>
+              <xs:element type="xs:string" name="longDescriptionHtml"/>
+              <xs:element name="details">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="detail" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="name"/>
+                          <xs:element type="xs:string" name="value"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="includedItemList"/>
+              <xs:element name="features">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="feature" maxOccurs="unbounded" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="offers"/>
+              <xs:element type="xs:string" name="marketplace"/>
+              <xs:element type="xs:string" name="listingId"/>
+              <xs:element type="xs:long" name="sellerId"/>
+              <xs:element type="xs:string" name="shippingRestrictions"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
