@@ -22,7 +22,7 @@ import java.util.Map;
 public class test {
 
     @Test
-    public void import_data () throws IOException, JAXBException, SAXException {
+    public void import_data () throws IOException, JAXBException, SAXException, SolrServerException {
 
         //SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         //Schema schema = sf.newSchema(new File("src/main/resources/data/products/schema.xsd"));
@@ -32,12 +32,11 @@ public class test {
 
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Products products = (Products) jaxbUnmarshaller.unmarshal(productsXML);
+        String urlString = "http://localhost:8983/solr/products/";
+        SolrClient solr = new HttpSolrClient.Builder(urlString).build();
+
         for (Product product: products.getProducts()) {
             Map productMap = product.toMap();
-
-            String urlString = "http://localhost:8983/solr/products/";
-            SolrClient solr = new HttpSolrClient.Builder(urlString).build();
-
             SolrInputDocument document = new SolrInputDocument();
             productMap.forEach((k,v)->{
                         if (v == null)
@@ -46,15 +45,9 @@ public class test {
                             document.addField((String)k, v);
                     }
             );
-            try {
-                UpdateResponse response = solr.add(document);
-                solr.commit();
-            } catch (SolrServerException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            UpdateResponse response = solr.add(document);
         }
+        solr.commit();
     }
 
 }
