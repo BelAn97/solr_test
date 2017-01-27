@@ -8,8 +8,8 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
-@XmlRootElement(name="product")
-class ProductRecordRoot {
+@XmlRootElement
+class Product {
 	@XmlElement
 	String sku;
 	@XmlElement
